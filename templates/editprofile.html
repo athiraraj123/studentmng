@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+{%block title%}editprofile{% endblock title%}
+{% block navs%}
+
+ <nav class="nav">
+    <a class="nav-link active" href="{% url 'home'%}">Home</a>
+    <a class="nav-link" href="{% url 'staff'%}">Show Staff</a>
+    <a class="nav-link" href="{% url 'student'%}">Show Student</a>
+    <a class="nav-link" href="{% url 'enquiry'%}">Enquiery</a>
+    <a class="nav-link" href="{% url 'form'%}">Add Student</a>
+  </nav> 
+{% endblock navs%}
+{% block content%}
+  <div class="card text_center">
+    <div><h1 class="text-center">Edit Profile</h1></div>
+      <div class="card_body">
+      <form action="" method="POST" class="container">
+      {% csrf_token %} 
+      {% for i in customer %}
+      <div class="input-group mb-3">
+        <span class="input-group-text bg-dark text-secondary w-25"> Name</span>
+        <input type="text" class="form-control" aria-label="First name" name="name" placeholder="{{i.name}}">
+     </div>
+     <div class="input-group mb-3">
+        <span class="input-group-text bg-dark text-secondary w-25"> Email</span>
+        <input type="text" class="form-control" aria-label="First name" name="email" placeholder="{{i.email}}">
+   </div>
+   <div class="input-group mb-3">
+      <span class="input-group-text bg-dark text-secondary w-25">password</span>
+     <input type="text" class="form-control" aria-label="First name" name="password" placeholder="{{i.password}}">
+   </div>
+   <div class="input-group mb-3">
+      <span class="input-group-text bg-dark text-secondary w-25">Phonenumber</span>
+      <input type="text" class="form-control" aria-label="First name" name="phno" placeholder="{{i.phno}}">
+   </div>
+   
+   <div class="card-footer text-muted d-flex justify-content-center">
+     <input type="submit" value="edit"  class="btn btn-dark text-secondary w-25">
+   </div>
+  </div>
+   {%endfor%}
+  </form>
+</div>
+
+   
+{% endblock content%}

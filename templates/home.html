@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block navs%}
+
+ <nav class="nav">
+    <a class="nav-link active" href="{% url 'home'%}">Home</a>
+    <a class="nav-link" href="{% url 'staff'%}">Show Staff</a> 
+    <a class="nav-link" href="{% url 'student'%}">Show students</a>
+    <a class="nav-link" href="{% url 'enquiry'%}">Enquiry</a>
+    <a class="nav-link" href="{% url 'form'%}">Add Student</a>
+  </nav> 
+{% endblock navs%}
+{% block content%}
+<div class="container d-flex" style="margin-top:30px;">
+  <div >
+          <h1>Provide Best Education Services For You</h1>
+          <p>Providing advanced level Gen 4.0 software training to students, Prototype is an IT finishing school situated at Kakkanad, near Infopark Cochin & Mavoor Road Calicut. Prototype is affiliated to National Council for Technology and Training (NACTET). NACTET is an autonomous organisation registered under Govt of Kerala and Government of India NCT, New Delhi under Indian trust act.</p>
+          <ul>
+              <li>ISO 9001:2015 Certified Institution</li>
+                 <li> Affiliated to NACTET (http://www.nactetindia.org/affiliation.php)</li>
+                 <li> Training by highly experienced and certified professionals</li>
+                <li>  No slideshow (PPT) training, fully Hands-on training</li>
+                <li>  Interactive session with interview QA’s</li>
+          </ul>
+    </div>  
+    <div>
+      <img src="{% static 'image/pro.jpg'%}" class="rounded float-left" alt="..." style="width:30vh;height:30vh;" >
+    </div>   
+  </div> 
+  <body id="bg" style="background-image: url('{% static 'image/s9.png'%}')" alt="..." style="width:30vh;height:30vh;">
+  {% endblock content%}
+          

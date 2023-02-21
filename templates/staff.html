@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+    {%block title%}staff{% endblock title%}
+    {% block navs%}
+
+ <nav class="nav">
+    <a class="nav-link active" href="{% url 'home'%}">Home</a>
+    <a class="nav-link" href="{% url 'staff'%}">Show Staff</a>
+    <a class="nav-link" href="{% url 'student'%}">Show Student</a>
+    <a class="nav-link" href="{% url 'enquiry'%}">Enquiery</a>
+    <div class="nav justify-content-end">
+    <a class="nav-link" href="{% url 'form'%}">Add Student</a>
+    </div>
+  </nav> 
+{% endblock navs%}
+{% block content%}
+        <div class="container">
+            <div><h1 class="text-center">Staff Details</h1></div>
+            <div style="margin-right:auto; margin-left:auto; text-align:center">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Staff Name</th>
+                    <th scope="col">Staff Email</th>
+                    <th scope="col">Staff Phone Number</th>
+                  </tr>
+                </thead>
+                {% for i in form %}
+                  <tbody>
+                    <tr>
+                      <td>{{i.name}}</td>
+                      <td>{{i.email}}</td>
+                      <td>{{i.phno}}</td>
+                    </tr>
+                  {% endfor %}    
+                </table>
+            </div>
+            </div>
+  {% endblock content%}
+        

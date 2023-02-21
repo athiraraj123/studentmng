@@ -1,0 +1,36 @@
+{% extends 'mainbase.html'%}
+{% load static %}
+{% block title%}Courses{%endblock title%}
+{% block navs%}
+
+ <nav class="nav">
+    <a class="nav-link active" href="{% url 'mainhome'%}">Home</a>
+    <a class="nav-link" href="{% url 'course'%}">Course</a>
+    <a class="nav-link" href="{% url 'gallery'%}">Gallery</a>
+    <a class="nav-link" href="{% url 'contact'%}">Contact</a>
+  </nav> 
+  {% endblock %}
+{%block content%}
+<div class="container">
+<h1 class="text-center">Courses</h1>
+<hr>
+{% for c in course %}
+<div class="card mb-3 d-inline" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="{{c.image.url}}" alt="..." style="width:30vh; height:30vh">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{c.name}}</h5>
+          <p class="card-text">{{c.description}} </p>
+          <p class="card-text">duration:{{c.duration}} months</p>
+          <p class="card-text">Fee:{{c.fee}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endfor%}
+</div>
+{%endblock content%}

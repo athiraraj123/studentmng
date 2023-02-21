@@ -1,0 +1,48 @@
+{% extends 'base.html'%}
+    {%block title%}studentedit{% endblock title%}
+    {% block navs%}
+
+ <nav class="nav">
+    <a class="nav-link active" href="">Home</a>
+    <a class="nav-link" href="">Show Staff</a>
+    <a class="nav-link" href="">Show Student</a>
+    <a class="nav-link" href="">Enquiery</a>
+    <a class="nav-link" href="">Add Student</a>
+  </nav> 
+{% endblock navs%}
+{% block content%}
+<div><h1 class="text-center">Student Profile</h1></div>
+<form action="" method="POST" class="container">
+   {% csrf_token %} 
+   {% for i in form %}
+  <div class="input-group mb-3">
+      <span class="input-group-text bg-dark text-secondary w-25">Student Name</span>
+    <input type="text" class="form-control" aria-label="First name" name="student_name" placeholder="{{i.student_name}}">
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text bg-dark text-secondary w-25">Student Email</span>
+  <input type="text" class="form-control" aria-label="First name" name="student_email" placeholder="{{i.student_email}}">
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-text bg-dark text-secondary w-25">Student Phone Number</span>
+<input type="text" class="form-control" aria-label="First name" name="student_phone" placeholder="{{i.student_phone}}">
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-text bg-dark text-secondary w-25">Student Address</span>
+<input type="text" class="form-control" aria-label="First name" name="student_address" placeholder="{{i.student_address}}">
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-text bg-dark text-secondary w-25">Student place</span>
+<input type="text" class="form-control" aria-label="First name" name="student_place" placeholder="{{i.student_place}}">
+</div>
+<div class="card-footer text-muted d-flex justify-content-center">
+  <button type="submit" value="edit" id="edit" class="btn btn-dark text-secondary w-25">Edit</button>
+</div>
+{%endfor%}
+</form>
+</div>
+
+
+
+   
+{% endblock content%}

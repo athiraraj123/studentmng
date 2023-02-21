@@ -1,0 +1,54 @@
+{%extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title%}add student{% endblock title%}
+{% block navs%}
+
+ <nav class="nav">
+    <a class="nav-link active" href="{% url 'home'%}">Home</a>
+    <a class="nav-link" href="{% url 'staff'%}">Show Staff</a> 
+    <a class="nav-link" href="{% url 'student'%}">Show students</a>
+    <a class="nav-link" href="{% url 'enquiry'%}">Enquiry</a>
+    <a class="nav-link" href="{% url 'form'%}">Add Student</a>
+  </nav> 
+{% endblock navs%}
+{% block content%}
+
+<h2 class="text-center">Student Form</h2>
+<div class="container w-50 text-center p-3 bg-dark text-light">
+    <form action="" method="POST">
+        {%  csrf_token %}
+        {{form|crispy}}
+        <input type="submit" class="mt-4 btn-dark" value="submit">
+    </form>
+</div>
+{% endblock content%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

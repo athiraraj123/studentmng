@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+    {%block title%}student{% endblock title%}
+    {% block navs%}
+
+ <nav class="nav">
+    <a class="nav-link active" href="{% url 'home'%}">Home</a>
+    <a class="nav-link" href="{% url 'staff'%}">Show Staff</a>
+    <a class="nav-link" href="{% url 'student'%}">Show Student</a>
+    <a class="nav-link" href="{% url 'enquiry'%}">Enquiery</a>
+    <a class="nav-link" href="{% url 'form'%}">Add Student</a>
+  </nav> 
+{% endblock navs%}
+{% block content%}
+<h1 class = "text center" style="text-align: center;">Student details</h1>
+  <table class="container table table-dark table-striped text-center">
+	<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Phone Number</th>
+		<th>Address</th>
+		<th>Place</th>
+		<th></th>
+		<th></th>
+	</tr>
+	{% for i in form %}
+	<tr>
+		<td>{{i.student_name}}</td>
+		<td>{{i.student_email}}</td>
+		<td>{{i.student_phone}}</td>
+		<td>{{i.student_address}}</td>
+		<td>{{i.student_place}}</td>
+		<td><a href="{% url 'edit'%}?edit={{i.student_id}}"class="btn text-light btn-outline-secondary">Edit</a></td>
+		<td><a href="{% url 'delete'%}?delete={{i.student_id}}"class="btn text-light btn-outline-secondary">Delete</a></td>
+
+	</tr>
+	{% endfor %}
+</table>
+
+{% endblock content %}

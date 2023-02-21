@@ -1,0 +1,61 @@
+{% extends 'mainbase.html' %}
+{% load static %}
+{% block title %}signin{% endblock title %}
+
+  {% block content%}
+  {% comment %} <style>
+    .error {
+          border: solid red !important;
+      }
+      .success{
+          border: solid green !important;
+        }
+      .px p{
+        text-align:center;
+        color:red;
+      }
+      </style> {% endcomment %}
+    <div style=" background-color:white;
+    padding: 50px;
+    margin-top:  15%;
+    border: 1px dotted black;
+    border-radius: 25px;
+    margin-right:450px;
+    margin-left:450px; display: flex;
+    justify-content: center;">
+       
+        
+        {% comment %} <div class="px">
+          <p id="text"></p>
+        </div> {% endcomment %}
+        <form action="" method="POST">
+          {%  csrf_token %}
+          <div style="text-align:center;">{% for message in messages %}
+            <p style="color:red;">{{message}}</p>
+            {% endfor %}</div>
+          <div style="padding-left:40px;">
+            <button type="button" class="btn btn-primary" onclick="window.location.href='../signup'">Sign Up</button>
+            <button type="button" class="btn btn-primary" id="signin">Sign In</button>
+          </div>
+        
+            <h1>SIGN IN</h1>
+            
+                <div class="row d-block">
+                  <div class="col">
+                    <input type="email" class="form-control" placeholder="emailid" name="email" id="email">
+                  </div>
+                  <div class="col" style="padding-top: 15px;">
+                    <input type="password" class="form-control" placeholder="Password" name="password" id="password">
+                  </div>
+                </div>
+              <div style="padding-top:15px; padding-left:55px">
+            <button type="submit" class="btn btn-primary" id="signin" value="signin">sign in</button>
+              </div>
+              <div style="text-align:center;">
+                <a href="{% url 'forgot'%}" >Forgot Password</a>
+              </div>
+        </form>
+      </div>
+      <body id="bg" style="background-image: url('{% static 'image/s5.jpg'%}')" alt="..." style="width:50vh;height:50vh;">
+      {%endblock content%}
+        

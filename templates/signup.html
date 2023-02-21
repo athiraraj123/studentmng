@@ -1,0 +1,68 @@
+{% extends 'mainbase.html' %}
+{% load static %}
+{% block title %}signup{% endblock title %}
+{% block content%}
+<style>
+.error {
+    border: solid red !important;
+  }
+.success{
+    border: solid green !important;
+  }
+.px p{
+  text-align:center;
+  color:red;
+}
+</style>
+<div style=" background-color: azure;
+padding: 50px;
+margin-top:  15%;
+border: 1px dotted black;
+border-radius: 25px;
+margin-right:450px;
+margin-left:450px; display: flex;
+justify-content: center;">
+<div class="px">
+  <p id="text"></p>
+</div>
+<form action="" method="POST">
+  {%  csrf_token %}
+  <div>{% for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}</div>
+    <div style="padding-left:40px;">
+      <button type="button" class="btn btn-success">Sign Up</button>
+      <button type="button" class="btn btn-success" onclick="window.location.href='../signin'">Sign In</button>
+    </div>
+  
+      <h1>SIGN UP</h1>
+      
+
+      
+      
+          <div class="row d-block">
+            <div class="col">
+                <input type="text" class="form-control"  placeholder="name" id="name" name="name" onchange="validname()" required>
+              </div>  
+            <div class="col">
+              <input type="email" class="form-control" placeholder="emailid" id="email" name="email" onchange="validemail()">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="phone number" id="ph" name="ph" onchange="validph()">
+              </div>
+            <div class="col">
+              <input type="password" class="form-control" placeholder="Password" id="pass1" name="pass1" onchange="validpass()">
+            </div>
+            <div class="col" style="padding-top: 15px;">
+                <input type="password" class="form-control" placeholder="conform Password" id="pass2" name="pass2" onchange="validpassconform()">
+              </div>
+          </div>
+        <div style="padding-top:15px; padding-left:55px">
+      <button type="submit" class="btn btn-success" id="signup"> signup</button>
+        </div>
+        
+  </form>
+</div>
+<body id="bg" style="background-image: url('{% static 'image/s8.webp'%}')" alt="..." style="width:30vh;height:30vh;">
+<script src="{% static 'js/signup.js' %}"></script>
+{% endblock content%}
